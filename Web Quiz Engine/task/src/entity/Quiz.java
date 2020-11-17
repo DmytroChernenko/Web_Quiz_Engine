@@ -1,13 +1,19 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Quiz {
-    
+
+    private int id;
     private String title;
     private String text;
     private String[] options;
+
+    @JsonIgnore
+    private int answer;
 
     public Quiz() {
     }
