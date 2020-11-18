@@ -1,6 +1,7 @@
 package entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -18,10 +19,37 @@ public class Quiz {
     public Quiz() {
     }
 
-    public Quiz(String title, String text, String[] options) {
+    public Quiz(String title, String text, String[] options, int answer) {
         this.title = title;
         this.text = text;
         this.options = options;
+        this.answer = answer;
+    }
+
+    public Quiz(int id, String title, String text, String[] options, int answer) {
+        this.id = id;
+        this.title = title;
+        this.text = text;
+        this.options = options;
+        this.answer = answer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @JsonIgnore
+    public int getAnswer() {
+        return answer;
+    }
+
+    @JsonProperty
+    public void setAnswer(int answer) {
+        this.answer = answer;
     }
 
     public String getTitle() {
